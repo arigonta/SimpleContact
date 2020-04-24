@@ -17,9 +17,9 @@ class DetailContactViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var addPhotoButton: UIButton!
     @IBOutlet weak var profileImage: UIImageView!
+    
     let imagePicker = UIImagePickerController()
     var imageBase64 = ""
-    
     var contact: Contact?
     var HTTPMethod: HTTPMethod?
     
