@@ -1,5 +1,5 @@
 # Simple Contact
-This application is created using SWIFT 5.
+This application is created using SWIFT 5 & Xcode 11.
 
 # Requirements
 - iOS 10.0+ / macOS 10.12+
