@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        getRequest()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,7 +52,6 @@ class ViewController: UIViewController {
         button.imageEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 8, right: 99)
         button.sizeToFit()
         navBar.leftBarButtonItem = UIBarButtonItem(customView: button)
-        
     }
     
     func setupPullRefresh() {
