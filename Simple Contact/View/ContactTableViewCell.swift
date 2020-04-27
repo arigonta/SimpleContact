@@ -12,9 +12,4 @@ class ContactTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
-    @IBOutlet weak var imageContact: UIImageView! {
-        didSet {
-            imageContact.setRounded()
-        }
-    }
 }

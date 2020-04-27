@@ -20,6 +20,7 @@ class DetailContactViewController: UIViewController, UIImagePickerControllerDele
     
     let imagePicker = UIImagePickerController()
     var imageBase64 = ""
+    let uuid = UUID().uuidString
     var contact: Contact?
     var HTTPMethod: HTTPMethod?
     
@@ -31,7 +32,6 @@ class DetailContactViewController: UIViewController, UIImagePickerControllerDele
     }
     
     func Configure() {
-        
         firstNameTextField.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
         lastNameNameTextField.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
         ageTextField.addDoneButton(title: "Done", target: self, selector: #selector(tapDone(sender:)))
@@ -45,14 +45,21 @@ class DetailContactViewController: UIViewController, UIImagePickerControllerDele
             if contact?.photo?.absoluteString.contains("http") ?? false {
                 profileImage.kf.setImage(with: contact?.photo)
             } else {
-                let newImageData = Data(base64Encoded: contact?.photo?.absoluteString ?? "")
-                if let newImageData = newImageData {
-                    profileImage.image = UIImage(data: newImageData)
+                let photoUserDefault = UserDefaults.standard.dictionary(forKey: "photoUserDefault") as? [String:String]
+                if !(photoUserDefault?.isEmpty ?? true) {
+                    var photo = ""
+                    let result = photoUserDefault?.filter({ (key, _ ) -> Bool in key == contact?.photo?.absoluteString }) ?? []
+                    result.forEach { (key ,value) in
+                        photo = value
+                    }
+                    let newImageData = Data(base64Encoded: photo)
+                    if let newImageData = newImageData {
+                        profileImage.image = UIImage(data: newImageData)
+                    }
                 } else {
                     profileImage.image = #imageLiteral(resourceName: "profilePlaceHolder")
                 }
             }
-            
         } else {
             firstNameTextField.placeholder = "Input Your First Name"
             lastNameNameTextField.placeholder = "Input Your Last Name"
@@ -84,7 +91,7 @@ class DetailContactViewController: UIViewController, UIImagePickerControllerDele
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let pickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
         profileImage.image = pickedImage
-        imageBase64 = profileImage.convertImageToBase64(pickedImage)
+        imageBase64 = profileImage.convertImageToBase64(pickedImage) ?? ""
         dismiss(animated: true, completion: nil)
     }
     
@@ -97,11 +104,12 @@ class DetailContactViewController: UIViewController, UIImagePickerControllerDele
     }
     
     private func insertData() -> Contact {
+        saveUserDefault(uuid, imageBase64)
         let contact = Contact(id: nil,
                               firstName: firstNameTextField.text,
                               lastName: lastNameNameTextField.text,
                               age: Int(ageTextField.text ?? ""),
-                              photo: URL(string: imageBase64))
+                              photo: URL(string: uuid))
         return contact
     }
     
@@ -109,6 +117,7 @@ class DetailContactViewController: UIViewController, UIImagePickerControllerDele
         doneButton.pulsate()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             if self.HTTPMethod == .PUT {
+                updateUserDefault(self.uuid, self.imageBase64)
                 let contactRequest = APIManager(endpoint: "\(Constant.endpoint)/\(self.contact?.id ?? "")")
                 contactRequest.sendRequest(self.insertData(), httpMethod: .PUT, completion: { result in
                     switch result {

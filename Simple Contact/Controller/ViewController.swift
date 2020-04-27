@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import Kingfisher
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var tableView: UITableView!
     
@@ -102,17 +101,6 @@ extension ViewController: UITableViewDataSource {
         if let contactCell = tableView.dequeueReusableCell(withIdentifier: "ContactTableViewCell", for: indexPath)as? ContactTableViewCell {
             contactCell.titleLabel.text = "\(contact[indexPath.row].firstName ?? "") \(contact[indexPath.row].lastName ?? "")"
             contactCell.detailLabel.text = "Age: \(contact[indexPath.row].age ?? 0)"
-            
-            if contact[indexPath.row].photo?.absoluteString.contains("http") ?? false {
-                contactCell.imageContact.kf.setImage(with: contact[indexPath.row].photo)
-            } else {
-                let newImageData = Data(base64Encoded: contact[indexPath.row].photo?.absoluteString ?? "")
-                if let newImageData = newImageData {
-                   contactCell.imageContact.image = UIImage(data: newImageData)
-                } else {
-                    contactCell.imageContact.image = #imageLiteral(resourceName: "profilePlaceHolder")
-                }
-            }
             return contactCell
         } else {
             return UITableViewCell.init()
@@ -122,7 +110,7 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 75
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

@@ -14,9 +14,7 @@ extension UIImageView {
         self.clipsToBounds = true
     }
     
-    func convertImageToBase64(_ image: UIImage) -> String {
-        let imageData:NSData = image.jpegData(compressionQuality: 0.4)! as NSData
-        let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
-        return strBase64
+    func convertImageToBase64(_ image: UIImage) -> String? {
+        return image.jpegData(compressionQuality: 0.5)?.base64EncodedString()
     }
 }

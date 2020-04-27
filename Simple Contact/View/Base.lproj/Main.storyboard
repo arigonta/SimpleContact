@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kos-XS-UBj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -42,20 +43,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gfO-0S-J5i">
-                                                    <rect key="frame" x="20" y="16" width="75" height="68"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="75" id="UeW-8X-Uti"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age : 24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgz-9G-fBb">
-                                                    <rect key="frame" x="115" y="42" width="279" height="16"/>
+                                                    <rect key="frame" x="28" y="42" width="366" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Armadi Gonta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ke-Eb-ivZ">
-                                                    <rect key="frame" x="115" y="16" width="279" height="21"/>
+                                                    <rect key="frame" x="28" y="16" width="366" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -63,19 +58,15 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="2ke-Eb-ivZ" secondAttribute="trailing" id="00T-gm-hno"/>
-                                                <constraint firstItem="2ke-Eb-ivZ" firstAttribute="top" secondItem="gfO-0S-J5i" secondAttribute="top" id="I4A-uv-iyE"/>
-                                                <constraint firstItem="gfO-0S-J5i" firstAttribute="top" secondItem="8h5-KV-uyA" secondAttribute="topMargin" constant="5" id="ID7-3d-Mct"/>
-                                                <constraint firstItem="gfO-0S-J5i" firstAttribute="leading" secondItem="8h5-KV-uyA" secondAttribute="leadingMargin" id="M2J-VE-UTE"/>
+                                                <constraint firstItem="2ke-Eb-ivZ" firstAttribute="leading" secondItem="8h5-KV-uyA" secondAttribute="leadingMargin" constant="8" id="2ft-Em-5Qv"/>
                                                 <constraint firstItem="cgz-9G-fBb" firstAttribute="top" secondItem="2ke-Eb-ivZ" secondAttribute="bottom" constant="5" id="Ui1-Sc-MEp"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="cgz-9G-fBb" secondAttribute="trailing" id="XBC-wm-TRa"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="gfO-0S-J5i" secondAttribute="bottom" constant="5" id="jgw-xn-Z8C"/>
-                                                <constraint firstItem="2ke-Eb-ivZ" firstAttribute="leading" secondItem="gfO-0S-J5i" secondAttribute="trailing" constant="20" id="ucy-Iq-ISb"/>
-                                                <constraint firstItem="cgz-9G-fBb" firstAttribute="leading" secondItem="gfO-0S-J5i" secondAttribute="trailing" constant="20" id="zDi-kj-gwr"/>
+                                                <constraint firstItem="2ke-Eb-ivZ" firstAttribute="top" secondItem="8h5-KV-uyA" secondAttribute="topMargin" constant="5" id="tkI-CF-tJv"/>
+                                                <constraint firstItem="cgz-9G-fBb" firstAttribute="leading" secondItem="8h5-KV-uyA" secondAttribute="leadingMargin" constant="8" id="wAf-7p-9GC"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="detailLabel" destination="cgz-9G-fBb" id="L7w-6S-zf1"/>
-                                            <outlet property="imageContact" destination="gfO-0S-J5i" id="APx-iF-dK5"/>
                                             <outlet property="titleLabel" destination="2ke-Eb-ivZ" id="Iu3-qg-20r"/>
                                         </connections>
                                     </tableViewCell>
