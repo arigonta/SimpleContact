@@ -16,9 +16,5 @@ This application is created using SWIFT 5 & Xcode 11.
 # Notes
 - Sometimes the API didn't response.
 
-# Screenshoot
-
-- ![IMG_7599](https://user-images.githubusercontent.com/42374776/80271321-6cdac500-86e9-11ea-991f-a1bd04cc6425.PNG)
-
-- ![IMG_7601](https://user-images.githubusercontent.com/42374776/80271460-77498e80-86ea-11ea-9c98-74056a1c2781.PNG)
-
+# Screen Record
+[![Watch the video]![Simulator Screen Shot - iPhone 8 - 2020-04-28 at 02 31 24](https://user-images.githubusercontent.com/42374776/80412663-61a9b400-88f8-11ea-840e-e7c4adcf56b9.png)](https://youtu.be/UtEFAe3_qW0)
