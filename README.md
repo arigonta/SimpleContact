@@ -3,7 +3,8 @@ This application is created using SWIFT 5 & Xcode 11.
 
 # Requirements
 - iOS 10.0+
-- Swift 4.0+
+- Swift 5.0+
+- Xcode 11
 
 # Other
 - API : https://simple-contact-crud.herokuapp.com/documentation
